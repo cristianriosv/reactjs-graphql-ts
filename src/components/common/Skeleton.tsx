@@ -1,11 +1,11 @@
-import React, { FC } from "react";
+import { FC } from "react";
 import { Skeleton as SkeletonLib } from "antd";
 
-interface ISkeletonParams {
-    loading: boolean
+interface ISkeletonProps {
+    loading: boolean,
 }
 
-const Skeleton: FC<ISkeletonParams> = ({ children, loading }) => (
+const Skeleton: FC<ISkeletonProps> = ({ children, loading }) => (
     <>
         {loading ?
             <SkeletonLib loading={loading} active={loading} />

@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 
 const AppProvider:FC = ({ children }) => {

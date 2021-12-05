@@ -1,4 +1,3 @@
-import React from "react";
 import { Tag, Descriptions, Button, PageHeader } from "antd";
 import { useNavigate, useNavigationType, useParams } from "react-router";
 import useGetCountryDetail from "../services/queries/useGetCountryDetail";
@@ -12,13 +11,13 @@ const CountryDetail = () => {
     const navigationType = useNavigationType();
     const { data, loading, error } = useGetCountryDetail(countryCode || "");
 
-    if (error) return <PageError500 />;
-    if (data && data.country == null) return <Page404/>;
-
     const handleBack = () => {
         if (navigationType === "PUSH") navigate(-1);
         else navigate('/');
     }
+
+    if (error) return <PageError500 />;
+    if (data && data.country == null) return <Page404/>;
 
     return (
         <Skeleton loading={loading}>

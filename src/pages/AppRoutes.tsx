@@ -1,4 +1,3 @@
-import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import CountryDetail from "../pages-components/CountryDetail";
 import CountryList from "../pages-components/CountryList";

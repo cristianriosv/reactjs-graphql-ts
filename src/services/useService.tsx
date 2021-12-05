@@ -1,19 +1,17 @@
-import React from "react";
 import { useQuery } from "react-query";
 import { request as requestGql, gql } from "graphql-request";
+import { apiUrl } from "../constants/api";
 
 interface IUseServiceParams {
     name: string,
-    body: string
+    query: string
 }
 
-const endpoint:string = "https://countries.trevorblades.com/";
-
-const request = async (body: string) => await requestGql(endpoint, gql`${body}`);
+const request = async (query: string) => await requestGql(apiUrl, gql`${query}`);
 
 const useService = (params: IUseServiceParams) => {
-    const { name, body } = params;
-    return useQuery(name, () => request(body));
+    const { name, query } = params;
+    return useQuery(name, () => request(query));
 };
 
 export default useService;

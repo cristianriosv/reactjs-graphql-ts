@@ -1,4 +1,3 @@
-import React from "react";
 import useService from "../useService";
 import { ICountry } from "../interfaces";
 
@@ -22,7 +21,7 @@ interface IUseGetCountries {
 
 const useGetCountries = (params: IGetCountriesParams): IUseGetCountries => {
     const { search } = params;
-    const bodyQuery = `
+    const query = `
         query ListCountries {
             countries (filter: {
             ${search.countryCode != "" ? `code: {regex: "^${search.countryCode}"}` : ''},
@@ -35,7 +34,7 @@ const useGetCountries = (params: IGetCountriesParams): IUseGetCountries => {
             }
         }
     `;
-    const { data, error, isLoading, refetch, isRefetching } = useService({ name: "ListCountries", body: bodyQuery });
+    const { data, error, isLoading, refetch, isRefetching } = useService({ name: "ListCountries", query });
     return { data, error, loading: isLoading, refetch, isRefetching }
 }
 

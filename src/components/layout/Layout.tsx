@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import CSS from 'csstype';
 import { Layout as LibLayout, PageHeader } from 'antd';
 
@@ -33,9 +33,9 @@ const Layout:FC = ({ children }) => {
         </div>
       </Content>
       <Footer style={footerStyles}>
-        Hello globetrotter, this is an excercise to evaluate the technical skills that I could achieve with the stack of: reactjs + typescript + graphql.
-        For this excercise I have used ant design for the UI, react-query for the query management and cache, graphql-request for the graphql client scripts, and router-dom for the routing.
-        Hope you found it useful!
+        Hello globetrotter, this is an exercise with the stack of: reactjs, typescript and graphql.
+        For this project I have used the api of countries.trevorblades.com, ant design for the UI, react-query for the query management, graphql-request for the graphql client scripts, and router-dom for the routing.
+        Hope you find it useful!
       </Footer>
     </LibLayout>
   );

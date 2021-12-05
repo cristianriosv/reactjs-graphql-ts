@@ -1,4 +1,3 @@
-import React from "react";
 import { Empty, PageHeader } from "antd";
 import { useNavigate } from "react-router";
 

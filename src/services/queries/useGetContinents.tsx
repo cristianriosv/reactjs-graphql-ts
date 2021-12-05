@@ -1,4 +1,3 @@
-import React from "react";
 import useService from "../useService";
 import { IContinent } from "../interfaces";
 
@@ -11,7 +10,7 @@ interface IUseGetCountries {
 }
 
 const useGetContinents = (): IUseGetCountries => {
-    const bodyQuery = `
+    const query = `
         query GetContinents {
             continents{
                 name,
@@ -19,7 +18,7 @@ const useGetContinents = (): IUseGetCountries => {
             }
         }
     `;
-    const { data, error, isLoading } = useService({ name: "ListContinents", body: bodyQuery });
+    const { data, error, isLoading } = useService({ name: "ListContinents", query });
     return { data, error, loading: isLoading }
 }
 

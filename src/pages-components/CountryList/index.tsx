@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Table, Form, Input, Select, Row, Col } from 'antd';
 import { Link, useSearchParams } from "react-router-dom";
-import useGetCountries from "../services/queries/useGetCountries";
-import useGetContinents from "../services/queries/useGetContinents";
-import Skeleton from "../components/common/Skeleton";
-import { ICountry } from "../services/interfaces";
-import PageError500 from "../pages/PageError500";
+import useGetCountries from "../../services/queries/useGetCountries";
+import useGetContinents from "../../services/queries/useGetContinents";
+import Skeleton from "../../components/common/Skeleton";
+import PageError500 from "../../pages/PageError500";
+import SearchNavForm from "./SearchNavForm";
 
 const CountryList = () => {
     const [searchParams, setSearchParams] = useSearchParams();
@@ -29,9 +29,7 @@ const CountryList = () => {
         refetch();
     }, [search]);
 
-    if (error || errorContinents) return <PageError500 />;
-
-    const columns = [
+    const tableColumns = [
         {
             title: 'Name',
             key: 'name',
@@ -73,37 +71,18 @@ const CountryList = () => {
         }
     }
 
+    if (error || errorContinents) return <PageError500 />;
+
     return (
         <>
-
-            <Form layout="vertical">
-                <Row gutter={6}>
-                    <Col xs={{ span: 8 }} md={{ span: 5 }}>
-                        <Form.Item label="Country code">
-                            <Input allowClear size="small" placeholder="Enter code..." value={search.countryCode} onChange={(e) => handleChangeFilter("countryCode", e.target.value)} />
-                        </Form.Item>
-                    </Col>
-                    <Col xs={{ span: 8 }} md={{ span: 5 }}>
-                        <Form.Item label="Currency">
-                            <Input allowClear size="small" placeholder="Enter currency..." value={search.currencyCode} onChange={(e) => handleChangeFilter("currencyCode", e.target.value)} />
-                        </Form.Item>
-                    </Col>
-                    <Col xs={{ span: 24 }} md={{ span: 14 }}>
-                        <Form.Item label="Continent">
-                            <Select allowClear mode="multiple" size="small" placeholder="Select continent..." value={search.continents} style={{ width: '100%' }} onChange={(values: string[]) => handleChangeFilter("continents", values)}>
-                                {dataContinents?.continents?.map((continent) => (
-                                    <Select.Option value={continent.code} label={continent.name}>
-                                        {continent.name}
-                                    </Select.Option>
-                                ))}
-                            </Select>
-                        </Form.Item>
-                    </Col>
-                </Row>
-            </Form>
+            <SearchNavForm
+                search={search}
+                dataContinents={dataContinents}
+                handleChangeFilter={handleChangeFilter}
+            />
             <Skeleton loading={loading || loadingContinents || (isRefetching && !search.firstFilter)}>
                 <Table
-                    columns={columns}
+                    columns={tableColumns}
                     dataSource={data?.countries}
                     pagination={false}
                 />
