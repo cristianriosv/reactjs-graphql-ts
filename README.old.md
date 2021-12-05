@@ -1,1 +1,0 @@
-# reactjs-graphql-ts
