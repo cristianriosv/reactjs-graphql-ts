@@ -1,4 +1,4 @@
-import { Tag, Descriptions, Button, PageHeader } from "antd";
+import { Tag, Descriptions, PageHeader } from "antd";
 import { useNavigate, useNavigationType, useParams } from "react-router";
 import useGetCountryDetail from "../services/queries/useGetCountryDetail";
 import Skeleton from "../components/common/Skeleton";

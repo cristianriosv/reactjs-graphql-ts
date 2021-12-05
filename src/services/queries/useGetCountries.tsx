@@ -24,8 +24,8 @@ const useGetCountries = (params: IGetCountriesParams): IUseGetCountries => {
     const query = `
         query ListCountries {
             countries (filter: {
-            ${search.countryCode != "" ? `code: {regex: "^${search.countryCode}"}` : ''},
-            ${search.currencyCode != "" ? `currency: {regex: "^${search.currencyCode}"}` : ''}
+            ${search.countryCode !== "" ? `code: {regex: "^${search.countryCode}"}` : ''},
+            ${search.currencyCode !== "" ? `currency: {regex: "^${search.currencyCode}"}` : ''}
             ${search.continents.length ? `continent: {in: ${JSON.stringify(search.continents)}}` : ''}
             }) {
                 name,

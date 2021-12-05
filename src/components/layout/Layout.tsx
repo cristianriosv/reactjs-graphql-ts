@@ -33,7 +33,7 @@ const Layout:FC = ({ children }) => {
         </div>
       </Content>
       <Footer style={footerStyles}>
-        Hello globetrotter, this is an exercise with the stack of: reactjs, typescript and graphql.
+        Hello globetrotter, this is an exercise made with the stack of: reactjs, typescript and graphql.
         For this project I have used the api of countries.trevorblades.com, ant design for the UI, react-query for the query management, graphql-request for the graphql client scripts, and router-dom for the routing.
         Hope you find it useful!
       </Footer>

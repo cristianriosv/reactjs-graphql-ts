@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Table, Form, Input, Select, Row, Col } from 'antd';
+import { Table } from 'antd';
 import { Link, useSearchParams } from "react-router-dom";
 import useGetCountries from "../../services/queries/useGetCountries";
 import useGetContinents from "../../services/queries/useGetContinents";
@@ -27,7 +27,7 @@ const CountryList = () => {
 
     useEffect(() => {
         refetch();
-    }, [search]);
+    }, [search, refetch]);
 
     const tableColumns = [
         {

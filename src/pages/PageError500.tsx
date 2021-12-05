@@ -1,5 +1,4 @@
 import { Empty, PageHeader } from "antd";
-import { useNavigate } from "react-router";
 
 const PageError500= () => {
     const letsTryAgain = () => {

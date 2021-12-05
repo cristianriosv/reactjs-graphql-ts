@@ -12,7 +12,7 @@ interface IUseGetCountryDetail {
 const useGetCountryDetail = (countryCode: string): IUseGetCountryDetail => {
     const query = `
         query GetCountryDetail {
-            country(code:\"${countryCode}\"){
+            country(code:"${countryCode}"){
                 name,
                 code,
                 capital,

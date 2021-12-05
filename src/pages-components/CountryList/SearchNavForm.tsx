@@ -22,18 +22,18 @@ const SearchNavForm: FC<ISearchNavFormProps> = ({ search, dataContinents, handle
                     <Input
                         allowClear
                         size="small"
-                        placeholder="Enter code..."
+                        placeholder="Enter country code..."
                         value={search.countryCode}
                         onChange={(e) => handleChangeFilter("countryCode", e.target.value)}
                     />
                 </Form.Item>
             </Col>
             <Col xs={{ span: 8 }} md={{ span: 5 }}>
-                <Form.Item label="Currency">
+                <Form.Item label="Currency code">
                     <Input
                         allowClear
                         size="small"
-                        placeholder="Enter currency..."
+                        placeholder="Enter currency code..."
                         value={search.currencyCode}
                         onChange={(e) => handleChangeFilter("currencyCode", e.target.value)}
                     />
@@ -45,13 +45,17 @@ const SearchNavForm: FC<ISearchNavFormProps> = ({ search, dataContinents, handle
                         allowClear
                         mode="multiple" 
                         size="small"
-                        placeholder="Select continent..."
+                        placeholder="Select continents..."
                         value={search.continents}
                         style={{ width: '100%' }}
                         onChange={(values: string[]) => handleChangeFilter("continents", values)}
                     >
                         {dataContinents?.continents?.map((continent) => (
-                            <Select.Option value={continent.code} label={continent.name}>
+                            <Select.Option
+                                key={continent.code}
+                                value={continent.code}
+                                label={continent.name}
+                            >
                                 {continent.name}
                             </Select.Option>
                         ))}
