@@ -1,7 +1,7 @@
 import useService from "../useService";
 import { IContinent } from "../interfaces";
 
-interface IUseGetCountries {
+export interface IUseGetContinents {
     data: {
         continents: IContinent[]
     },
@@ -9,7 +9,7 @@ interface IUseGetCountries {
     error: any
 }
 
-const useGetContinents = (): IUseGetCountries => {
+const useGetContinents = (): IUseGetContinents => {
     const query = `
         query GetContinents {
             continents{

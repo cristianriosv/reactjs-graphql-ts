@@ -9,7 +9,7 @@ interface IGetCountriesParams {
     }
 }
 
-interface IUseGetCountries {
+export interface IUseGetCountries {
     data: {
         countries: ICountry[]
     },

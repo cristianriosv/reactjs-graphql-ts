@@ -1,7 +1,7 @@
 import useService from "../useService";
 import { ICountry } from "../interfaces";
 
-interface IUseGetCountryDetail {
+export interface IUseGetCountryDetail {
     data: {
         country?: ICountry
     },

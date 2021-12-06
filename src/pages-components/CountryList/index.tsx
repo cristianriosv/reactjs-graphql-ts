@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { Table } from 'antd';
 import { Link, useSearchParams } from "react-router-dom";
-import useGetCountries from "../../services/queries/useGetCountries";
-import useGetContinents from "../../services/queries/useGetContinents";
+import { useGetCountries } from "../../services";
+import { useGetContinents } from "../../services";
 import Skeleton from "../../components/common/Skeleton";
 import PageError500 from "../../pages/PageError500";
 import SearchNavForm from "./SearchNavForm";
@@ -85,6 +85,7 @@ const CountryList = () => {
                     columns={tableColumns}
                     dataSource={data?.countries}
                     pagination={false}
+                    rowKey="code"
                 />
             </Skeleton>
         </>
