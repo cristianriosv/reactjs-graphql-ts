@@ -3,9 +3,10 @@ import { Table } from 'antd';
 import { Link, useSearchParams } from "react-router-dom";
 import { useGetCountries } from "../../services";
 import { useGetContinents } from "../../services";
-import Skeleton from "../../components/common/Skeleton";
-import PageError500 from "../../pages/PageError500";
+import { Skeleton } from "../../components";
+import { PageError500 } from "../../pages";
 import SearchNavForm from "./SearchNavForm";
+import { TEXTS } from "../../constants/texts";
 
 const CountryList = () => {
     const [searchParams, setSearchParams] = useSearchParams();
@@ -31,26 +32,26 @@ const CountryList = () => {
 
     const tableColumns = [
         {
-            title: 'Name',
+            title: TEXTS.countryList.tableColName,
             key: 'name',
             dataIndex: 'name'
         },
         {
-            title: 'Continent',
+            title: TEXTS.countryList.tableColContinent,
             key: 'continent',
             dataIndex: ['continent', 'name']
         },
         {
-            title: 'Code',
+            title: TEXTS.countryList.tableColCode,
             key: 'code',
             dataIndex: 'code',
             width: 100
         },
         {
-            title: 'Details',
+            title: TEXTS.countryList.tableColDetails,
             key: 'details',
             render: (record: { code: string }) => (
-                <Link to={`/${record.code}`}>View details ({record.code})</Link>
+                <Link to={`/${record.code}`}>{TEXTS.countryList.tableButtonViewDetails} ({record.code})</Link>
             )
         }
     ];

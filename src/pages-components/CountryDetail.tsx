@@ -1,9 +1,9 @@
 import { Tag, Descriptions, PageHeader } from "antd";
 import { useNavigate, useNavigationType, useParams } from "react-router";
 import useGetCountryDetail from "../services/queries/useGetCountryDetail";
-import Skeleton from "../components/common/Skeleton";
-import Page404 from "../pages/Page404";
-import PageError500 from "../pages/PageError500";
+import { Skeleton } from "../components";
+import { Page404 } from "../pages";
+import { PageError500 } from "../pages";
 
 const CountryDetail = () => {
     const { countryCode } = useParams ();

@@ -1,13 +1,13 @@
 import { useQuery } from "react-query";
 import { request as requestGql, gql } from "graphql-request";
-import { apiUrl } from "../constants/api";
+import { API_URL } from "../constants/api";
 
 interface IUseServiceParams {
     name: string,
     query: string
 }
 
-const request = async (query: string) => await requestGql(apiUrl, gql`${query}`);
+const request = async (query: string) => await requestGql(API_URL, gql`${query}`);
 
 const useService = (params: IUseServiceParams) => {
     const { name, query } = params;

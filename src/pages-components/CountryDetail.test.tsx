@@ -6,6 +6,7 @@ import AppProvider from "../providers/AppProvider";
 import * as getHooks from "../services";
 import { IUseGetCountryDetail } from "../services/queries/useGetCountryDetail";
 import CountryDetail from "./CountryDetail";
+import { TEXTS } from "../constants/texts";
 
 const mockCountry: IUseGetCountryDetail = {
     data: {
@@ -48,18 +49,18 @@ describe("Page country detail...", () => {
             loading: true
         }));
         const component = render(<AppContainer><CountryDetail/></AppContainer>);
-        expect(component.container).not.toHaveTextContent("Code");
-        expect(component.container).not.toHaveTextContent("Name");
-        expect(component.container).not.toHaveTextContent("Continent");
+        expect(component.container).not.toHaveTextContent(TEXTS.countryDetail.headerCode);
+        expect(component.container).not.toHaveTextContent(TEXTS.countryDetail.headerName);
+        expect(component.container).not.toHaveTextContent(TEXTS.countryDetail.headerContinent);
     });
     it("should show details when finish load", () => {
         jest.spyOn(getHooks, "useGetCountryDetail").mockImplementation(() => ({
             ...mockCountry
         }));
         const component = render(<AppContainer><CountryDetail/></AppContainer>);
-        expect(component.container).toHaveTextContent("Code");
-        expect(component.container).toHaveTextContent("Name");
-        expect(component.container).toHaveTextContent("Continent");
+        expect(component.container).toHaveTextContent(TEXTS.countryDetail.headerCode);
+        expect(component.container).toHaveTextContent(TEXTS.countryDetail.headerName);
+        expect(component.container).toHaveTextContent(TEXTS.countryDetail.headerContinent);
         expect(component.container).toHaveTextContent("Argentina");
     });
     it("should show error info when error", () => {
@@ -68,9 +69,9 @@ describe("Page country detail...", () => {
             error:true
         }));
         const component = render(<AppContainer><CountryDetail/></AppContainer>);
-        expect(component.container).toHaveTextContent("Ups! Something went wrong.");
+        expect(component.container).toHaveTextContent(TEXTS.common.error500);
     });
-    it("should show 404 page info when the country not exist", () => {
+    it("should show 404 page info when the country does not exist", () => {
         jest.spyOn(getHooks, "useGetCountryDetail").mockImplementation(() => ({
             ...mockCountry,
             data: {
@@ -78,6 +79,6 @@ describe("Page country detail...", () => {
             }
         }));
         const component = render(<AppContainer><CountryDetail/></AppContainer>);
-        expect(component.container).toHaveTextContent("Seems that the country you are looking for doesn't exist.");
+        expect(component.container).toHaveTextContent(TEXTS.common.error404);
     });
 });

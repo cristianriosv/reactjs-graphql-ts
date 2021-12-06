@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import CSS from 'csstype';
 import { Layout as LibLayout, PageHeader } from 'antd';
+import { TEXTS } from '../../constants/texts';
 
 const contentStyles: CSS.Properties = {
     padding: '30px',
@@ -24,7 +25,7 @@ const Layout:FC = ({ children }) => {
     <LibLayout>
       <Header style={headerStyles}>
         <PageHeader
-          title="Search Countries UI"
+          title={TEXTS.common.title}
         />
       </Header>
       <Content style={contentStyles}>
@@ -33,9 +34,7 @@ const Layout:FC = ({ children }) => {
         </div>
       </Content>
       <Footer style={footerStyles}>
-        Hello globetrotter, this is an exercise made with the stack of: reactjs, typescript and graphql.
-        For this project I have used the api of countries.trevorblades.com, ant design for the UI, react-query for the query management, graphql-request for the graphql client scripts, and router-dom for the routing.
-        Hope you find it useful!
+        {TEXTS.common.footer}
       </Footer>
     </LibLayout>
   );

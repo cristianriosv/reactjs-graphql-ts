@@ -1,4 +1,5 @@
 import { Empty, PageHeader } from "antd";
+import { TEXTS } from "../constants/texts";
 
 const PageError500= () => {
     const letsTryAgain = () => {
@@ -6,8 +7,8 @@ const PageError500= () => {
     }
     return(
         <>
-            <PageHeader title="Try again" onBack={letsTryAgain} />
-            <Empty description="Ups! Something went wrong. This is very shameful... But maybe it is the backend, not me! Don't blame on me :/. Let's try again." />
+            <PageHeader title={TEXTS.common.tryAgain} onBack={letsTryAgain} />
+            <Empty description={TEXTS.common.error500} />
         </>
     )
 }

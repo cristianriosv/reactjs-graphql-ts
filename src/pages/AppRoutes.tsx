@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import CountryDetail from "../pages-components/CountryDetail";
-import CountryList from "../pages-components/CountryList";
+import { CountryDetail } from "../pages-components";
+import { CountryList } from "../pages-components";
 import Page404 from "./Page404";
 
 const AppRoutes = () => {

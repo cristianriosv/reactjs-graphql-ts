@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { Form, Input, Select, Row, Col } from 'antd';
 import { IContinent } from "../../services/interfaces";
+import { TEXTS } from "../../constants/texts";
 
 interface ISearchNavFormProps {
     search: {
@@ -18,34 +19,34 @@ const SearchNavForm: FC<ISearchNavFormProps> = ({ search, dataContinents, handle
     <Form layout="vertical">
         <Row gutter={6}>
             <Col xs={{ span: 8 }} md={{ span: 5 }}>
-                <Form.Item label="Country code">
+                <Form.Item label={TEXTS.countryList.formCountryLabel}>
                     <Input
                         allowClear
                         size="small"
-                        placeholder="Enter country code..."
+                        placeholder={TEXTS.countryList.formCountryPlaceholder}
                         value={search.countryCode}
                         onChange={(e) => handleChangeFilter("countryCode", e.target.value)}
                     />
                 </Form.Item>
             </Col>
             <Col xs={{ span: 8 }} md={{ span: 5 }}>
-                <Form.Item label="Currency code">
+                <Form.Item label={TEXTS.countryList.formCurrencyLabel}>
                     <Input
                         allowClear
                         size="small"
-                        placeholder="Enter currency code..."
+                        placeholder={TEXTS.countryList.formCurrencyPlaceholder}
                         value={search.currencyCode}
                         onChange={(e) => handleChangeFilter("currencyCode", e.target.value)}
                     />
                 </Form.Item>
             </Col>
             <Col xs={{ span: 24 }} md={{ span: 14 }}>
-                <Form.Item label="Continent">
+                <Form.Item label={TEXTS.countryList.formContinentLabel}>
                     <Select
                         allowClear
                         mode="multiple" 
                         size="small"
-                        placeholder="Select continents..."
+                        placeholder={TEXTS.countryList.formContinentPlaceholder}
                         value={search.continents}
                         style={{ width: '100%' }}
                         onChange={(values: string[]) => handleChangeFilter("continents", values)}

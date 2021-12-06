@@ -1,1 +1,1 @@
-export const apiUrl: string = process.env['REACT_APP_COUNTRIES_API'] || "";
+export const API_URL: string = process.env['REACT_APP_COUNTRIES_API'] || "";

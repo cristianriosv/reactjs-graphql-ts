@@ -7,6 +7,7 @@ import { IUseGetContinents } from "../../services/queries/useGetContinents";
 import { Route, Routes } from "react-router";
 import { BrowserRouter } from "react-router-dom";
 import AppProvider from "../../providers/AppProvider";
+import { TEXTS } from "../../constants/texts";
 
 const mockCountries: IUseGetCountries = {
     data: {
@@ -90,7 +91,7 @@ describe("Page country list...", () => {
         }));
         const component = render(<AppContainer><CountryList/></AppContainer>);
         expect(component.container).toHaveTextContent("Argentina");
-        expect(component.container).toHaveTextContent("View details");
+        expect(component.container).toHaveTextContent(TEXTS.countryList.tableButtonViewDetails);
     });
     it("should show error info when error in countries", () => {
         jest.spyOn(getHooks, "useGetCountries").mockImplementation(() => ({
@@ -101,7 +102,7 @@ describe("Page country list...", () => {
             ...mockContinents
         }));
         const component = render(<AppContainer><CountryList/></AppContainer>);
-        expect(component.container).toHaveTextContent("Ups! Something went wrong.");
+        expect(component.container).toHaveTextContent(TEXTS.common.error500);
     });
     it("should show error info when error in continents", () => {
         jest.spyOn(getHooks, "useGetCountries").mockImplementation(() => ({
@@ -112,6 +113,6 @@ describe("Page country list...", () => {
             error: true
         }));
         const component = render(<AppContainer><CountryList/></AppContainer>);
-        expect(component.container).toHaveTextContent("Ups! Something went wrong.");
+        expect(component.container).toHaveTextContent(TEXTS.common.error500);
     });
 });
