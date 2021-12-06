@@ -8,6 +8,8 @@ export const TEXTS = {
         error404: "Seems that the country you are looking for doesn't exist. Maybe you feel like becoming a founder?"
     },
     countryList: {
+        welcome: "Welcome!",
+        description: "Here you can find a list of countries, you can filter them by their country code, their currency code or by continents. To see the details of a country, click on View Details",
         formCountryLabel: "Country code",
         formCountryPlaceholder: "Enter country code...",
         formCurrencyLabel: "Currency code",

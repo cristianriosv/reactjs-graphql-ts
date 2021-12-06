@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Table } from 'antd';
+import { Divider, Table, Typography } from 'antd';
 import { Link, useSearchParams } from "react-router-dom";
 import { useGetCountries } from "../../services";
 import { useGetContinents } from "../../services";
@@ -76,6 +76,13 @@ const CountryList = () => {
 
     return (
         <>
+            <Typography.Title level={3}>
+                {TEXTS.countryList.welcome}
+            </Typography.Title>
+            <Typography.Paragraph>
+                {TEXTS.countryList.description}
+            </Typography.Paragraph>
+            <Divider/>
             <SearchNavForm
                 search={search}
                 dataContinents={dataContinents}
