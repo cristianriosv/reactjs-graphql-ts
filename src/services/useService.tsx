@@ -1,6 +1,6 @@
 import { useQuery } from "react-query";
 import { request as requestGql, gql } from "graphql-request";
-import { API_URL } from "../constants/api";
+import { API_URL } from "../constants/common";
 
 interface IUseServiceParams {
     name: string,
